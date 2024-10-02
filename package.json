@@ -1,0 +1,55 @@
+{
+    "name": "@chronicals/sdk",
+    "version": "1.0.0",
+    "description": "The frontendless framework for high growth companies. Chronicals automatically generates apps by inlining the UI in your backend code. It's a faster and more maintainable way to build internal tools, rapid prototypes, and more.",
+    "homepage": "",
+    "repository": {
+        "type": "git",
+        "url": "github:chronicals/sdk"
+    },
+    "bugs": "https://github.com/chronicalss/sdk/issues",
+    "keywords": [
+        "internal tool",
+        "app",
+        "ui",
+        "ui builder"
+    ],
+    "license": "MIT",
+    "engines": {
+        "node": ">=12.17.0"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "tar": "yarn pack",
+        "check": "tsc --noEmit",
+        "build": "tsc",
+        "demo:basic": "node ./dist/examples/basic/index.js",
+        "dev": "nodemon --watch src -e ts src/examples/${1:-basic}/index.ts"
+    },
+    "dependencies": {
+        "@brillout/import": "^0.2.3",
+        "cross-fetch": "^4.0.0",
+        "evt": "^2.5.7",
+        "superjson": "^2.2.1",
+        "uuid": "^10.0.0",
+        "ws": "^8.18.0",
+        "zod": "^3.23.8"
+    },
+    "devDependencies": {
+        "@aws-sdk/client-s3": "^3.662.0",
+        "@aws-sdk/s3-request-presigner": "^3.662.0",
+        "@faker-js/faker": "^9.0.3",
+        "@types/dedent": "^0.7.2",
+        "@types/node": "^22.7.4",
+        "@types/uuid": "^10.0.0",
+        "@types/ws": "^8.5.12",
+        "dotenv": "^16.4.5",
+        "nodemon": "^3.1.7",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.6.2"
+    },
+    "resolutions": {
+        "ts-node": "^10.9.1"
+    }
+}
