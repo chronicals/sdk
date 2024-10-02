@@ -1,11 +1,11 @@
 import { z } from 'zod'
-import { Literal, IO_RENDER, buttonItem, metaItemSchema } from '../ioSchema'
+import { Literal, IO_RENDER, buttonItem, metaItemSchema } from '../ioSchema.js'
 import {
   AnyDisplayIOPromise,
   ButtonItem,
   PageError,
   EventualValue,
-} from '../types'
+} from '../types.js'
 
 type EventualString = EventualValue<string>
 

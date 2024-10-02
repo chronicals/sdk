@@ -12,11 +12,11 @@ export interface User {
 
 const allUsers: User[] = Array.from({ length: 313 }, () => {
   return {
-    id: faker.datatype.uuid(),
+    id: faker.string.uuid(),
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     email: faker.internet.email(),
-    createdAt: faker.date.recent(30),
+    createdAt: faker.date.recent({ days: 30 }),
   }
 }).sort((a, b) => {
   return b.createdAt.getTime() - a.createdAt.getTime()
@@ -42,8 +42,8 @@ export interface Comment {
 
 const allComments: Comment[] = Array.from({ length: 313 }, () => {
   return {
-    id: faker.datatype.uuid(),
-    createdAt: faker.date.recent(30),
+    id: faker.string.uuid(),
+    createdAt: faker.date.recent({ days: 30 }),
     userId: faker.helpers.arrayElement(allUsers).id,
     message: faker.hacker.phrase(),
   }
@@ -72,8 +72,8 @@ export interface Subscription {
 
 const allSubscriptions: Subscription[] = Array.from({ length: 313 }, () => {
   return {
-    id: faker.datatype.uuid(),
-    createdAt: faker.date.recent(30),
+    id: faker.string.uuid(),
+    createdAt: faker.date.recent({ days: 30 }),
     userId: faker.helpers.arrayElement(allUsers).id,
     plan: faker.helpers.arrayElement(['Basic', 'Premium', 'Enterprise']),
     status: faker.helpers.arrayElement(['active', 'canceled', 'past_due']),

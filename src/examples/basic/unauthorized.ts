@@ -1,4 +1,4 @@
-import { ChronicalsActionHandler } from '../..'
+import { ChronicalsActionHandler } from '../../index.js'
 
 const unauthorized: ChronicalsActionHandler = async io => {
   const email = await io.input.email('Email address')

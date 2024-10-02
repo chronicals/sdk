@@ -3,7 +3,7 @@ import {
   T_IO_RETURNS,
   DateObject,
   DateTimeObject,
-} from '../ioSchema'
+} from '../ioSchema.js'
 
 function dateToDateObject(d: Date): DateObject {
   return {

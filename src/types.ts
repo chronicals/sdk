@@ -20,19 +20,19 @@ import type {
   LegacyLinkProps,
   T_IO_MULTIPLEABLE_METHOD_NAMES,
   HighlightColor,
-} from './ioSchema'
+} from './ioSchema.js'
 import type {
   AccessControlDefinition,
   ActionEnvironment,
   CtxUserRole,
-} from './internalRpcSchema'
-import type { IOClient, IOClientRenderValidator } from './classes/IOClient'
-import type IOComponent from './classes/IOComponent'
+} from './internalRpcSchema.js'
+import type { IOClient, IOClientRenderValidator } from './classes/IOClient.js'
+import type IOComponent from './classes/IOComponent.js'
 import type {
   AnyIOComponent,
   ComponentReturnValue,
   MaybeMultipleComponentReturnValue,
-} from './classes/IOComponent'
+} from './classes/IOComponent.js'
 import type {
   IOPromise,
   OptionalIOPromise,
@@ -40,13 +40,13 @@ import type {
   DisplayIOPromise,
   InputIOPromise,
   MultipleableIOPromise,
-} from './classes/IOPromise'
-import type IOError from './classes/IOError'
-import type TransactionLoadingState from './classes/TransactionLoadingState'
-import type { Layout } from './classes/Layout'
-import type Page from './classes/Page'
-import type { BasicLayoutConfig } from './classes/Layout'
-import type Action from './classes/Action'
+} from './classes/IOPromise.js'
+import type IOError from './classes/IOError.js'
+import type TransactionLoadingState from './classes/TransactionLoadingState.js'
+import type { Layout } from './classes/Layout.js'
+import type Page from './classes/Page.js'
+import type { BasicLayoutConfig } from './classes/Layout.js'
+import type Action from './classes/Action.js'
 
 export type Prettify<T> = {
   [K in keyof T]: T[K]

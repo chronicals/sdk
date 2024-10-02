@@ -1,9 +1,13 @@
-import Logger from './Logger'
-import Chronicals, { ChronicalsActionDefinition, Page, QueuedAction } from '..'
+import Logger from './Logger.js'
+import Chronicals, {
+  ChronicalsActionDefinition,
+  Page,
+  QueuedAction,
+} from '../index.js'
 import { Ctx } from 'evt'
 
 /**
- * This is effectively a namespace inside of Interval with a little bit of its own state.
+ * This is effectively a namespace inside of Chronicals with a little bit of its own state.
  */
 export default class Routes {
   protected chronicals: Chronicals

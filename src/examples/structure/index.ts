@@ -1,8 +1,8 @@
-import Chronicals, { Page, io, Layout } from '../..'
-import { ChronicalsRouteDefinitions } from '../../types'
-import { sleep } from '../utils/helpers'
-import * as db from './db'
-import env from '../../env'
+import Chronicals, { Page, io, Layout } from '../../index.js'
+import { ChronicalsRouteDefinitions } from '../../types.js'
+import { sleep } from '../utils/helpers.js'
+import * as db from './db.js'
+import env from '../../env.js'
 
 const routes: ChronicalsRouteDefinitions = {
   // root-level action

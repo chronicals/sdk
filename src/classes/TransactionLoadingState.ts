@@ -1,8 +1,8 @@
 import {
   BackwardCompatibleLoadingOptions,
   BackwardCompatibleLoadingState,
-} from '../internalRpcSchema'
-import Logger from './Logger'
+} from '../internalRpcSchema.js'
+import Logger from './Logger.js'
 
 export interface TransactionLoadingStateConfig {
   logger: Logger

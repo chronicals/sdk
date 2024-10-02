@@ -1,11 +1,17 @@
-import { ChronicalsActionDefinition } from '@chronicals/sdk/src/types'
-import { ChronicalsActionHandler, Action, Page, Layout, io } from '../..'
+import {
+  ChronicalsActionHandler,
+  Action,
+  Page,
+  Layout,
+  io,
+  ChronicalsActionDefinition,
+} from '../../index.js'
 import { faker } from '@faker-js/faker'
-import fakeUsers from '../utils/fakeUsers'
-import { generateRows, sleep } from '../utils/helpers'
-import { asyncTable } from '../utils/ioMethodWrappers'
+import fakeUsers from '../utils/fakeUsers.js'
+import { generateRows, sleep } from '../utils/helpers.js'
+import { asyncTable } from '../utils/ioMethodWrappers.js'
 import dedent from 'dedent'
-import { HighlightColor } from '../../ioSchema'
+import { HighlightColor } from '../../ioSchema.js'
 
 export const no_pagination: ChronicalsActionHandler = async io => {
   const data = generateRows(5)
@@ -39,27 +45,7 @@ export const empty: ChronicalsActionHandler = async io => {
 
 export const large_table: ChronicalsActionDefinition = {
   name: '10k rows',
-  handler: async (io: {
-    display: {
-      table: (
-        arg0: string,
-        arg1: {
-          data: {
-            boolean: boolean
-            date: any
-            image: any
-            array: string[]
-            id: number
-            name: string
-            email: string
-            description: any
-            number: any
-          }[]
-          defaultPageSize: number
-        }
-      ) => any
-    }
-  }) => {
+  handler: async (io: any) => {
     const data = generateRows(10_000)
 
     await io.display.table('Display users', {
@@ -71,36 +57,11 @@ export const large_table: ChronicalsActionDefinition = {
 
 export const object_cell: ChronicalsActionDefinition = {
   name: 'Object in cell',
-  handler: async (io: {
-    display: {
-      table: (
-        arg0: string,
-        arg1: {
-          getData: (props: any) => Promise<{
-            data: {
-              date: any
-              payload: {
-                boolean: boolean
-                image: any
-                array: string[]
-                id: number
-                name: string
-                email: string
-                description: any
-                number: any
-              }
-            }[]
-            totalRecords: number
-          }>
-          columns: string[]
-        }
-      ) => any
-    }
-  }) => {
+  handler: async (io: any) => {
     const data = generateRows(10)
 
     await io.display.table('Display users', {
-      getData: async props => {
+      getData: async () => {
         return {
           data: data.map(({ date, ...rest }) => ({
             date,
@@ -480,10 +441,10 @@ export const table_custom: ChronicalsActionHandler = async io => {
     for (const field of fields) {
       switch (field.value) {
         case 'id':
-          row[field.value] = faker.datatype.uuid()
+          row[field.value] = faker.string.uuid()
           break
         case 'name':
-          row[field.value] = faker.name.findName()
+          row[field.value] = faker.name.fullName()
           break
         case 'email':
           row[field.value] = faker.internet.email()
@@ -492,7 +453,7 @@ export const table_custom: ChronicalsActionHandler = async io => {
           row[field.value] = faker.internet.url()
           break
         case 'number':
-          row[field.value] = faker.datatype.number()
+          row[field.value] = faker.number.int()
           break
         case 'paragraph':
           row[field.value] = faker.lorem.paragraph()
@@ -539,17 +500,17 @@ export const image_viewer: ChronicalsActionHandler = async io => {
     .fill(null)
     .map((_, i) => {
       const [width, height, crazyW, crazyH, tinyW, tinyH] = [
-        faker.datatype.number({ min: 500, max: 700 }),
-        faker.datatype.number({ min: 200, max: 400 }),
-        faker.datatype.number({ min: 100, max: 999 }),
-        faker.datatype.number({ min: 100, max: 999 }),
-        faker.datatype.number({ min: 12, max: 20 }),
-        faker.datatype.number({ min: 12, max: 20 }),
+        faker.number.int({ min: 500, max: 700 }),
+        faker.number.int({ min: 200, max: 400 }),
+        faker.number.int({ min: 100, max: 999 }),
+        faker.number.int({ min: 100, max: 999 }),
+        faker.number.int({ min: 12, max: 20 }),
+        faker.number.int({ min: 12, max: 20 }),
       ]
 
       return {
         id: i,
-        name: faker.name.findName(),
+        name: faker.name.fullName(),
         square: faker.image.avatar(),
         width,
         height,
@@ -557,10 +518,10 @@ export const image_viewer: ChronicalsActionHandler = async io => {
         crazyH,
         tinyW,
         tinyH,
-        wide: faker.image.imageUrl(width, height, undefined, true),
-        tall: faker.image.imageUrl(height, width, undefined, true),
-        crazy: faker.image.imageUrl(crazyW, crazyH, undefined, true),
-        tiny: faker.image.imageUrl(tinyW, tinyH, undefined, true),
+        wide: faker.image.urlPicsumPhotos({ width, height }),
+        tall: faker.image.urlPicsumPhotos({ width, height }),
+        crazy: faker.image.urlPicsumPhotos({ width: crazyW, height: crazyH }),
+        tiny: faker.image.urlPicsumPhotos({ width: tinyW, height: tinyH }),
       }
     })
 
@@ -748,8 +709,8 @@ export const markdown = new Page({
               index: 0,
               label: 'Bulleted list',
               value: dedent`Here are three bullet points:
-                - ${faker.random.word()}
-                - ${faker.random.word()}
+                - ${faker.lorem.word()}
+                - ${faker.lorem.word()}
                 - ${faker.lorem.paragraph()}
               
               And a [link](https://www.google.com/) at the end.
@@ -758,8 +719,8 @@ export const markdown = new Page({
             {
               index: 1,
               label: 'Numbered list',
-              value: dedent`1. ${faker.random.word()}
-                1. ${faker.random.word()}
+              value: dedent`1. ${faker.lorem.word()}
+                1. ${faker.lorem.word()}
                 1. ${faker.lorem.paragraph()}
               `,
             },

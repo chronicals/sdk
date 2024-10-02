@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { Page, Layout, io } from '../../..'
+import { Page, Layout, io } from '../../../index.js'
 
 export default new Page({
   name: 'Page definition in non-index',

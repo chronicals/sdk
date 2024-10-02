@@ -1,5 +1,5 @@
-import { io } from '../..'
-import { generateRows } from './helpers'
+import { io } from '../../index.js'
+import { generateRows } from './helpers.js'
 
 export function asyncTable(numRows: number) {
   const allData = generateRows(numRows)

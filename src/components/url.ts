@@ -1,4 +1,4 @@
-import type { T_IO_PROPS, T_IO_RETURNS } from '../ioSchema'
+import type { T_IO_RETURNS } from '../ioSchema.js'
 
 export default function urlInput() {
   return {

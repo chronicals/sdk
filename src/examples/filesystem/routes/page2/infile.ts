@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { Action } from '../../../..'
+import { Action } from '../../../../index.js'
 
 export default new Action(async io => {
   await io.display.code("This file's source code", {

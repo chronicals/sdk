@@ -1,19 +1,15 @@
-import { z } from 'zod'
-import fetch from 'cross-fetch'
 import type { IncomingMessage, ServerResponse } from 'http'
-import Chronicals, { io, ctx, InternalConfig, ChronicalsError } from '.'
-import ChronicalsClient from './classes/ChronicalsClient'
-import Page from './classes/Page'
-import * as pkg from '../package.json'
-import { DECLARE_HOST } from './internalRpcSchema'
+import Chronicals, { io, ctx, ChronicalsError } from './index.js'
+import ChronicalsClient from './classes/ChronicalsClient.js'
+import Page from './classes/Page.js'
 import {
   getRequestBody,
   HttpRequestBody,
   LambdaRequestPayload,
   LambdaResponse,
-} from './utils/http'
-import Action from './classes/Action'
-import { BasicLayout } from './classes/Layout'
+} from './utils/http.js'
+import Action from './classes/Action.js'
+import { BasicLayout } from './classes/Layout.js'
 
 class ExperimentalChronicals extends Chronicals {
   /*

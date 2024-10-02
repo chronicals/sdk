@@ -1,26 +1,33 @@
-import Chronicals, { IOError, io, ctx, Action, Page, Layout } from '../../index'
-import ChronicalsClient from '../../classes/ChronicalsClient'
+import Chronicals, {
+  IOError,
+  io,
+  ctx,
+  Action,
+  Page,
+  Layout,
+} from '../../index.js'
+import ChronicalsClient from '../../classes/ChronicalsClient.js'
 import {
   ChronicalsActionDefinition,
   ChronicalsActionHandler,
   NotificationDeliveryInstruction,
-} from '../../types'
-import editEmailForUser from './editEmail'
+} from '../../types.js'
+import editEmailForUser from './editEmail.js'
 import {
   fakeDb,
   mapToIntervalUser,
   sleep,
   generateRows,
-} from '../utils/helpers'
-import type { EventualMetaItem } from '../../components/displayMetadata'
-import * as table_actions from './table'
-import * as grid_actions from './grid'
-import unauthorized from './unauthorized'
-import { generateS3Urls } from '../utils/upload'
+} from '../utils/helpers.js'
+import type { EventualMetaItem } from '../../components/displayMetadata.js'
+import * as table_actions from './table.js'
+import * as grid_actions from './grid.js'
+import unauthorized from './unauthorized.js'
+import { generateS3Urls } from '../utils/upload.js'
 import fs from 'fs'
-import fakeUsers from '../utils/fakeUsers'
+import fakeUsers from '../utils/fakeUsers.js'
 import dedent from 'dedent'
-import env from '../../env'
+import env from '../../env.js'
 
 const gridsPage = new Page({
   name: 'Grids',
@@ -338,10 +345,10 @@ const prod = new Chronicals({
     redirectWithoutWarningTest: {
       warnOnClose: false,
       handler: async () => {
-        const text = await io.input.text('Edit text before navigating', {
+        await io.input.text('Edit text before navigating', {
           defaultValue: 'Backspace me',
         })
-        const text2 = await io.input.text('Edit text before navigating', {
+        await io.input.text('Edit text before navigating', {
           defaultValue: 'Backspace me',
         })
         ctx.redirect({ action: 'actionLinks' })

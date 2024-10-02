@@ -1,9 +1,9 @@
 import { z } from 'zod'
 import fetch from 'cross-fetch'
-import Routes from './classes/Routes'
-import IOError from './classes/IOError'
-import Logger, { LogLevel } from './classes/Logger'
-import Page from './classes/Page'
+import Routes from './classes/Routes.js'
+import IOError from './classes/IOError.js'
+import Logger, { LogLevel } from './classes/Logger.js'
+import Page from './classes/Page.js'
 import {
   NOTIFY,
   ClientSchema,
@@ -12,10 +12,10 @@ import {
   IceConfig,
   ENQUEUE_ACTION,
   DEQUEUE_ACTION,
-} from './internalRpcSchema'
-import { DuplexRPCHandlers } from './classes/DuplexRPCClient'
-import { NotConnectedError, TimeoutError } from './classes/ISocket'
-import { SerializableRecord } from './ioSchema'
+} from './internalRpcSchema.js'
+import { DuplexRPCHandlers } from './classes/DuplexRPCClient.js'
+import { NotConnectedError, TimeoutError } from './classes/ISocket.js'
+import { SerializableRecord } from './ioSchema.js'
 import type {
   ActionCtx,
   ActionLogFn,
@@ -28,17 +28,17 @@ import type {
   PageCtx,
   ChronicalsActionDefinition,
   ChronicalsErrorHandler,
-} from './types'
-import ChronicalsError from './classes/ChronicalsError'
+} from './types.js'
+import ChronicalsError from './classes/ChronicalsError.js'
 import ChronicalsClient, {
   getHttpEndpoint,
   actionLocalStorage,
   pageLocalStorage,
-} from './classes/ChronicalsClient'
-import Action from './classes/Action'
-import { BasicLayout } from './classes/Layout'
+} from './classes/ChronicalsClient.js'
+import Action from './classes/Action.js'
+import { BasicLayout } from './classes/Layout.js'
 import { Evt } from 'evt'
-import superjson from './utils/superjson'
+import superjson from './utils/superjson.js'
 
 export type {
   ActionCtx,

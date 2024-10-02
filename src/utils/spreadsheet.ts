@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ioSchema } from '../ioSchema'
+import { ioSchema } from '../ioSchema.js'
 
 export function extractColumns<
   Props extends z.infer<(typeof ioSchema)['INPUT_SPREADSHEET']['props']>,

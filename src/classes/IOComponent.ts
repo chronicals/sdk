@@ -8,10 +8,10 @@ import {
   T_IO_PROPS,
   T_IO_RETURNS,
   T_IO_STATE,
-} from '../ioSchema'
-import { deserializeDates } from '../utils/deserialize'
-import IOError from './IOError'
-import { IOPromiseValidator } from './IOPromise'
+} from '../ioSchema.js'
+import { deserializeDates } from '../utils/deserialize.js'
+import IOError from './IOError.js'
+import { IOPromiseValidator } from './IOPromise.js'
 
 type IoSchema = typeof ioSchema
 export interface ComponentInstance<MN extends keyof IoSchema> {

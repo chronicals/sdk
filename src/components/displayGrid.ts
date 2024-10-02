@@ -1,6 +1,11 @@
-import { T_IO_PROPS, T_IO_STATE, GridItem, InternalGridItem } from '../ioSchema'
-import { filterRows, sortRows, TABLE_DATA_BUFFER_SIZE } from '../utils/table'
-import { GridDataFetcher, gridItemSerializer } from '../utils/grid'
+import {
+  T_IO_PROPS,
+  T_IO_STATE,
+  GridItem,
+  InternalGridItem,
+} from '../ioSchema.js'
+import { filterRows, TABLE_DATA_BUFFER_SIZE } from '../utils/table.js'
+import { GridDataFetcher, gridItemSerializer } from '../utils/grid.js'
 
 type PublicProps<Row = any> = Omit<
   T_IO_PROPS<'DISPLAY_GRID'>,

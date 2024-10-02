@@ -8,13 +8,13 @@ import {
   T_IO_PROPS,
   T_IO_RETURNS,
   T_IO_STATE,
-} from '../ioSchema'
+} from '../ioSchema.js'
 import IOComponent, {
   AnyIOComponent,
   ComponentReturnValue,
   MaybeMultipleComponentReturnValue,
-} from './IOComponent'
-import IOError from './IOError'
+} from './IOComponent.js'
+import IOError from './IOError.js'
 import {
   ComponentRenderer,
   ComponentsRenderer,
@@ -25,10 +25,10 @@ import {
   ChoiceButtonConfig,
   ChoiceButtonConfigOrShorthand,
   ComponentsRendererReturn,
-} from '../types'
-import { IOClientRenderReturnValues } from './IOClient'
+} from '../types.js'
+import { IOClientRenderReturnValues } from './IOClient.js'
 import { z, ZodError } from 'zod'
-import ChronicalsError from './ChronicalsError'
+import ChronicalsError from './ChronicalsError.js'
 
 interface IOPromiseProps<
   MethodName extends T_IO_METHOD_NAMES,

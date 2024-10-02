@@ -1,7 +1,7 @@
 import http from 'http'
-import Chronicals, { Page, Layout } from '../../experimental'
-import { asyncTable } from '../utils/ioMethodWrappers'
-import env from '../../env'
+import Chronicals, { Page, Layout } from '../../experimental.js'
+import { asyncTable } from '../utils/ioMethodWrappers.js'
+import env from '../../env.js'
 
 const sleep = async (ms: number) =>
   new Promise(resolve => setTimeout(resolve, ms))

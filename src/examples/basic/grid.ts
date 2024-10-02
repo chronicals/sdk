@@ -1,7 +1,7 @@
-import { Action } from '@chronicals/sdk/src/experimental'
-import { ChronicalsActionHandler, io } from '../..'
+import { Action } from '../../experimental.js'
+import { ChronicalsActionHandler, io } from '../../index.js'
 import { faker } from '@faker-js/faker'
-import { sleep } from '../utils/helpers'
+import { sleep } from '../utils/helpers.js'
 
 export const dogs = new Action({
   name: 'Dogs',
@@ -12,12 +12,11 @@ export const dogs = new Action({
         id: i,
         name: faker.name.middleName(),
         description: faker.animal.dog(),
-        image: faker.image.imageUrl(
-          480,
-          Math.random() < 0.25 ? 300 : 480,
-          'dog',
-          true
-        ),
+        image: faker.image.urlPlaceholder({
+          width: 480,
+          height: Math.random() < 0.25 ? 300 : 480,
+          text: 'dog',
+        }),
       }))
 
     await io.display.grid('These dogs are good', {
@@ -51,7 +50,11 @@ export const tiktoks = new Action({
         id: i,
         label: `video from ${faker.internet.userName()}`,
         description: faker.date.past().toLocaleString(),
-        image: faker.image.animals(1080 / 4, 1920 / 4, true),
+        image: faker.image.urlPlaceholder({
+          width: 480,
+          height: Math.random() < 0.25 ? 300 : 480,
+          text: 'video',
+        }),
       }))
 
     await io.display.grid('', {
@@ -87,7 +90,12 @@ export const no_images: ChronicalsActionHandler = async io => {
     .map((_, i) => ({
       id: i,
       label: faker.commerce.productName(),
-      description: faker.commerce.price(100, 200, 0, '$'),
+      description: faker.commerce.price({
+        min: 100,
+        max: 200,
+        dec: 0,
+        symbol: '$',
+      }),
     }))
 
   await io.display.grid('', {
@@ -118,12 +126,11 @@ export const only_images: ChronicalsActionHandler = async io => {
       id: i,
       name: faker.name.middleName(),
       description: faker.animal.dog(),
-      image: faker.image.imageUrl(
-        480,
-        Math.random() < 0.25 ? 300 : 480,
-        'dog',
-        true
-      ),
+      image: faker.image.urlPlaceholder({
+        width: 480,
+        height: Math.random() < 0.25 ? 300 : 480,
+        text: 'dog',
+      }),
     }))
 
   await io.display.grid('', {
@@ -149,7 +156,11 @@ export const music = new Action({
         id: i,
         name: faker.music.songName(),
         artists: faker.name.fullName(),
-        image: faker.image.imageUrl(480, 480, 'abstract', true),
+        image: faker.image.urlPlaceholder({
+          width: 480,
+          height: Math.random() < 0.25 ? 300 : 480,
+          text: 'abstract',
+        }),
       }))
 
     await io.display.grid('', {
@@ -194,12 +205,11 @@ export const long_descriptions = new Action({
         id: i,
         name: faker.name.middleName(),
         description: faker.lorem.paragraph(),
-        image: faker.image.imageUrl(
-          480,
-          Math.random() < 0.25 ? 300 : 480,
-          'dog',
-          true
-        ),
+        image: faker.image.urlPlaceholder({
+          width: 480,
+          height: Math.random() < 0.25 ? 300 : 480,
+          text: 'dog',
+        }),
       }))
 
     await io.display.grid('', {
@@ -245,7 +255,14 @@ export const async_grid: ChronicalsActionHandler = async io => {
       name: faker.name.middleName(),
       email: faker.internet.email(),
       description: faker.lorem.sentence(),
-      image: i % 5 === 0 ? null : faker.image.imageUrl(600, 300, 'dog', true),
+      image:
+        i % 5 === 0
+          ? null
+          : faker.image.urlPlaceholder({
+              width: 480,
+              height: Math.random() < 0.25 ? 300 : 480,
+              text: 'dog',
+            }),
     }))
 
   await io.display.grid<(typeof allData)[0]>('Display users', {

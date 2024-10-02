@@ -4,8 +4,8 @@ import {
   T_IO_RETURNS,
   richSelectOption,
   primitiveValue,
-} from '../ioSchema'
-import Logger from '../classes/Logger'
+} from '../ioSchema.js'
+import Logger from '../classes/Logger.js'
 
 type SelectSingleProps<
   Option extends

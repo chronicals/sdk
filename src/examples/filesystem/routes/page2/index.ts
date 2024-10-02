@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { io, Page, Layout } from '../../../..'
+import { io, Page, Layout } from '../../../../index.js'
 
 export default new Page({
   name: 'Default export Page',

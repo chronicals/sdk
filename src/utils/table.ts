@@ -1,9 +1,9 @@
-import { internalTableColumn, tableRow, internalTableRow } from '../ioSchema'
-import { ColumnKey, MenuItem } from '../types'
+import { internalTableColumn, tableRow, internalTableRow } from '../ioSchema.js'
+import { ColumnKey, MenuItem } from '../types.js'
 import { z } from 'zod'
-import { TableColumn, TableColumnResult } from '../types'
-import { bufferToDataUrl } from './image'
-import Logger from '../classes/Logger'
+import { TableColumn, TableColumnResult } from '../types.js'
+import { bufferToDataUrl } from './image.js'
+import Logger from '../classes/Logger.js'
 
 export const TABLE_DATA_BUFFER_SIZE = 500
 

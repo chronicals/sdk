@@ -1,5 +1,5 @@
-import { T_IO_PROPS, ImageSize } from '../ioSchema'
-import { ChronicalsError } from '..'
+import { T_IO_PROPS, ImageSize } from '../ioSchema.js'
+import { ChronicalsError } from '../index.js'
 
 const MAX_BUFFER_SIZE_MB = 50
 

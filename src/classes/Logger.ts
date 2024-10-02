@@ -1,9 +1,9 @@
-import type { SdkAlert } from '../internalRpcSchema'
+import type { SdkAlert } from '../internalRpcSchema.js'
 import {
   detectPackageManager,
   getInstallCommand,
-} from '../utils/packageManager'
-import * as pkg from '../../package.json'
+} from '../utils/packageManager.js'
+import * as pkg from '../../package.json' assert { type: 'json' }
 
 export type LogLevel =
   | 'quiet'
@@ -105,7 +105,7 @@ export default class Logger {
     this.info("\t- See what's new at:", CHANGELOG_URL)
     this.info(
       '\t- Update now by running:',
-      getInstallCommand(`${pkg.name}@latest`, detectPackageManager())
+      getInstallCommand(`@chronicles/sdk@latest`, detectPackageManager())
     )
 
     this.infoNoPrefix()

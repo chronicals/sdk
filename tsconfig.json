@@ -1,15 +1,20 @@
 {
     "compilerOptions": {
       "outDir": "./dist",
-      "lib": ["dom", "dom.iterable", "esnext"],
+      "lib": ["dom", "dom.iterable", "ESNext"],
       "skipLibCheck": true,
-      "module": "commonjs",
-      "target": "ES2019",
+      "target": "ESNext",
       "declaration": true,
       "esModuleInterop": true,
-      "strict": true,
+      "strict": false,
       "strictNullChecks": true,
-      "rootDir": "./src"
+      "rootDir": "./src",
+      "moduleResolution": "nodenext",
+      "module": "NodeNext",
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "isolatedModules": true,
+      "removeComments": true,
     },
     "include": ["./src", "./package.json", "./typings.d.ts"],
     "exclude": ["node_modules"]

@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import type { T_IO_PROPS, T_IO_RETURNS } from '../ioSchema'
-import { COLUMN_DEFS } from '../utils/spreadsheet'
+import type { T_IO_PROPS, T_IO_RETURNS } from '../ioSchema.js'
+import { COLUMN_DEFS } from '../utils/spreadsheet.js'
 
 export default function spreadsheet<
   Columns extends T_IO_PROPS<'INPUT_SPREADSHEET'>['columns']

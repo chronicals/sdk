@@ -5,9 +5,9 @@ import path from 'path'
 import fsRoot from 'fs'
 import { import_ } from '@brillout/import'
 
-import Action from '../classes/Action'
-import Page from '../classes/Page'
-import Logger from '../classes/Logger'
+import Action from '../classes/Action.js'
+import Page from '../classes/Page.js'
+import Logger from '../classes/Logger.js'
 
 const fs = fsRoot.promises
 

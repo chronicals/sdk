@@ -4,8 +4,8 @@ import {
   T_IO_RETURNS,
   labelValue,
   primitiveValue,
-} from '../ioSchema'
-import Logger from '../classes/Logger'
+} from '../ioSchema.js'
+import Logger from '../classes/Logger.js'
 
 type SelectMultipleProps<
   Option extends z.infer<typeof labelValue> | z.infer<typeof primitiveValue>

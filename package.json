@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "The frontendless framework for high growth companies. Chronicals automatically generates apps by inlining the UI in your backend code. It's a faster and more maintainable way to build internal tools, rapid prototypes, and more.",
     "homepage": "",
+    "type": "module",
     "repository": {
         "type": "git",
         "url": "github:chronicals/sdk"
@@ -25,11 +26,12 @@
         "check": "tsc --noEmit",
         "build": "tsc",
         "demo:basic": "node ./dist/examples/basic/index.js",
-        "dev": "nodemon --watch src -e ts src/examples/${1:-basic}/index.ts"
+        "dev": "nodemon --watch src -e ts --exec 'node --import \"data:text/javascript,import { register } from \\\"node:module\\\"; import { pathToFileURL } from \\\"node:url\\\"; register(\\\"ts-node/esm\\\", pathToFileURL(\\\"./\\\"));\" src/examples/${1:-basic}/index.ts'"
     },
     "dependencies": {
         "@brillout/import": "^0.2.3",
         "cross-fetch": "^4.0.0",
+        "dedent": "^1.5.3",
         "evt": "^2.5.7",
         "superjson": "^2.2.1",
         "uuid": "^10.0.0",
@@ -50,6 +52,6 @@
         "typescript": "^5.6.2"
     },
     "resolutions": {
-        "ts-node": "^10.9.1"
+        "ts-node": "^10.9.2"
     }
 }

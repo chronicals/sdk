@@ -2,17 +2,16 @@ import { z, ZodError } from 'zod'
 import { v4 } from 'uuid'
 import { WebSocket } from 'ws'
 import fetch from 'cross-fetch'
-import superjson from '../utils/superjson'
-import { JSONValue } from 'superjson/dist/types'
+import superjson from '../utils/superjson.js'
 
-import ISocket, { TimeoutError, NotConnectedError } from './ISocket'
+import ISocket, { TimeoutError, NotConnectedError } from './ISocket.js'
 import {
   DuplexRPCClient,
   DuplexRPCHandlers,
   MethodDef,
-} from './DuplexRPCClient'
-import IOError from './IOError'
-import Logger from './Logger'
+} from './DuplexRPCClient.js'
+import IOError from './IOError.js'
+import Logger from './Logger.js'
 import {
   wsServerSchema,
   hostSchema,
@@ -24,19 +23,18 @@ import {
   PageDefinition,
   HostSchema,
   WSServerSchema,
-} from '../internalRpcSchema'
+} from '../internalRpcSchema.js'
 import {
   ActionResultSchema,
   IOFunctionReturnType,
   IO_RESPONSE,
   LegacyLinkProps,
-  T_IO_METHOD_NAMES,
   T_IO_RENDER_INPUT,
   T_IO_RESPONSE,
-} from '../ioSchema'
-import { IOClient } from './IOClient'
-import * as pkg from '../../package.json'
-import { deserializeDates } from '../utils/deserialize'
+} from '../ioSchema.js'
+import { IOClient } from './IOClient.js'
+import * as pkg from '../../package.json' assert { type: 'json' }
+import { deserializeDates } from '../utils/deserialize.js'
 import type {
   ActionCtx,
   PageCtx,
@@ -48,19 +46,20 @@ import type {
   ChronicalsRouteDefinitions,
   ChronicalsPageHandler,
   ChronicalsErrorHandler,
-} from '../types'
-import TransactionLoadingState from './TransactionLoadingState'
-import { Chronicals, InternalConfig, ChronicalsError } from '..'
-import Page from './Page'
-import Action from './Action'
+} from '../types.js'
+import TransactionLoadingState from './TransactionLoadingState.js'
+import { Chronicals, InternalConfig, ChronicalsError } from '../index.js'
+import Page from './Page.js'
+import Action from './Action.js'
 import {
   Layout,
   BasicLayout,
   LayoutSchemaInput,
   BasicLayoutConfig,
-} from './Layout'
+} from './Layout.js'
 
 import type { AsyncLocalStorage } from 'async_hooks'
+
 let actionLocalStorage: AsyncLocalStorage<ChronicalsActionStore> | undefined
 let pageLocalStorage: AsyncLocalStorage<ChronicalsPageStore> | undefined
 
@@ -241,7 +240,7 @@ export default class ChronicalsClient {
     if (typeof window === 'undefined' && this.#config.routesDirectory) {
       try {
         const { loadRoutesFromFileSystem } = await import(
-          '../utils/fileActionLoader'
+          '../utils/fileActionLoader.js'
         )
         fileSystemRoutes = await loadRoutesFromFileSystem(
           this.#config.routesDirectory,
@@ -440,8 +439,8 @@ export default class ChronicalsClient {
       httpHostId,
       actions: this.#actionDefinitions,
       groups: this.#pageDefinitions,
-      sdkName: pkg.name,
-      sdkVersion: pkg.version,
+      sdkName: '@chronicles/sdk',
+      sdkVersion: '1.0.0',
     }
 
     const response = await fetch(`${this.#httpEndpoint}/api/hosts/declare`, {
@@ -929,7 +928,7 @@ export default class ChronicalsClient {
 
         if (params && paramsMeta) {
           params = superjson.deserialize({
-            json: params as JSONValue,
+            json: params as any,
             meta: paramsMeta,
           })
         }
@@ -1214,7 +1213,7 @@ export default class ChronicalsClient {
 
         if (params && paramsMeta) {
           params = superjson.deserialize({
-            json: params as JSONValue,
+            json: params as any,
             meta: paramsMeta,
           })
         }
@@ -1695,8 +1694,8 @@ export default class ChronicalsClient {
     const response = await this.#send('INITIALIZE_HOST', {
       actions: this.#actionDefinitions,
       groups: this.#pageDefinitions,
-      sdkName: pkg.name,
-      sdkVersion: pkg.version,
+      sdkName: '@chronicles/sdk',
+      sdkVersion: '1.0.0',
       requestId,
       timestamp: new Date().valueOf(),
     })

@@ -1,5 +1,5 @@
-import { ChronicalsActionHandler } from '../..'
-import { fakeDb, getImageUrl } from '../utils/helpers'
+import { ChronicalsActionHandler } from '../../index.js'
+import { fakeDb, getImageUrl } from '../utils/helpers.js'
 
 const editEmailForUser: ChronicalsActionHandler = async io => {
   console.log("Let's say hello...")
