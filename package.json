@@ -6,7 +6,7 @@
     "type": "module",
     "repository": {
         "type": "git",
-        "url": "github:chronicals/sdk"
+        "url": "git+https://github.com/chronicals/sdk.git"
     },
     "author": "Kumar Yash",
     "bugs": "https://github.com/chronicalss/sdk/issues",
@@ -18,7 +18,7 @@
     ],
     "license": "MIT",
     "engines": {
-      "node": ">=18.16.0"
+        "node": ">=18.16.0"
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -63,42 +63,42 @@
         "ts-node": "^10.9.2"
     },
     "publishConfig": {
-      "provenance": true,
-      "access": "public"
+        "provenance": true,
+        "access": "public"
     },
     "c8": {
-      "reporter": [
-        "text",
-        "html"
-      ],
-      "exclude": [
-        "tests/**",
-        "dist/**",
-        "examples/**"
-      ]
+        "reporter": [
+            "text",
+            "html"
+        ],
+        "exclude": [
+            "tests/**",
+            "dist/**",
+            "examples/**"
+        ]
     },
     "release-it": {
-      "git": {
-        "requireCleanWorkingDir": true,
-        "requireUpstream": true,
-        "commitMessage": "chore(release): ${version}",
-        "tagAnnotation": "v${version}",
-        "push": true,
-        "tagName": "v${version}"
-      },
-      "github": {
-        "release": true
-      },
-      "npm": {
-        "publish": true,
-        "skipChecks": true
-      },
-      "plugins": {
-        "@release-it/conventional-changelog": {
-          "preset": {
-            "name": "angular"
-          }
+        "git": {
+            "requireCleanWorkingDir": true,
+            "requireUpstream": true,
+            "commitMessage": "chore(release): ${version}",
+            "tagAnnotation": "v${version}",
+            "push": true,
+            "tagName": "v${version}"
+        },
+        "github": {
+            "release": true
+        },
+        "npm": {
+            "publish": true,
+            "skipChecks": true
+        },
+        "plugins": {
+            "@release-it/conventional-changelog": {
+                "preset": {
+                    "name": "angular"
+                }
+            }
         }
-      }
     }
 }
