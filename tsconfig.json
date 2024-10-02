@@ -10,7 +10,7 @@
       "strictNullChecks": true,
       "rootDir": "./src",
       "moduleResolution": "Node",
-      "module": "None",
+      "module": "CommonJS",
       "noUnusedLocals": false,
       "noUnusedParameters": false,
       "isolatedModules": true,
