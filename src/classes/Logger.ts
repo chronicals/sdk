@@ -3,7 +3,6 @@ import {
   detectPackageManager,
   getInstallCommand,
 } from '../utils/packageManager.js'
-import * as pkg from '../../package.json' assert { type: 'json' }
 
 export type LogLevel =
   | 'quiet'

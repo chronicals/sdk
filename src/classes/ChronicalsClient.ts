@@ -33,7 +33,6 @@ import {
   T_IO_RESPONSE,
 } from '../ioSchema.js'
 import { IOClient } from './IOClient.js'
-import * as pkg from '../../package.json' assert { type: 'json' }
 import { deserializeDates } from '../utils/deserialize.js'
 import type {
   ActionCtx,
