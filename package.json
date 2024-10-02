@@ -20,8 +20,8 @@
     "engines": {
         "node": ">=18.16.0"
     },
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "scripts": {
         "tar": "yarn pack",
         "check": "tsc --noEmit",
@@ -91,7 +91,8 @@
         },
         "npm": {
             "publish": true,
-            "skipChecks": true
+            "skipChecks": true,
+            "publishArgs": ["--no-provenance"]
         },
         "plugins": {
             "@release-it/conventional-changelog": {
