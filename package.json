@@ -1,6 +1,6 @@
 {
     "name": "@chronicals/sdk",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "The frontendless framework for high growth companies. Chronicals automatically generates apps by inlining the UI in your backend code. It's a faster and more maintainable way to build internal tools, rapid prototypes, and more.",
     "homepage": "",
     "type": "module",
@@ -8,6 +8,7 @@
         "type": "git",
         "url": "github:chronicals/sdk"
     },
+    "author": "Kumar Yash",
     "bugs": "https://github.com/chronicalss/sdk/issues",
     "keywords": [
         "internal tool",
@@ -17,16 +18,19 @@
     ],
     "license": "MIT",
     "engines": {
-        "node": ">=12.17.0"
+      "node": ">=18.16.0"
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
         "tar": "yarn pack",
         "check": "tsc --noEmit",
-        "build": "tsc",
         "demo:basic": "node ./dist/examples/basic/index.js",
-        "dev": "nodemon --watch src -e ts --exec 'node --import \"data:text/javascript,import { register } from \\\"node:module\\\"; import { pathToFileURL } from \\\"node:url\\\"; register(\\\"ts-node/esm\\\", pathToFileURL(\\\"./\\\"));\" src/examples/${1:-basic}/index.ts'"
+        "compile": "tsc --emitDeclarationOnly --declaration",
+        "build": "npm run compile",
+        "dev": "nodemon --watch src -e ts --exec 'node --import \"data:text/javascript,import { register } from \\\"node:module\\\"; import { pathToFileURL } from \\\"node:url\\\"; register(\\\"ts-node/esm\\\", pathToFileURL(\\\"./\\\"));\" src/examples/${1:-basic}/index.ts'",
+        "release": "release-it",
+        "sync-labels": "github-label-sync --labels .github/labels.json chronicles/sdk"
     },
     "dependencies": {
         "@brillout/import": "^0.2.3",
@@ -42,16 +46,59 @@
         "@aws-sdk/client-s3": "^3.662.0",
         "@aws-sdk/s3-request-presigner": "^3.662.0",
         "@faker-js/faker": "^9.0.3",
+        "@release-it/conventional-changelog": "^8.0.2",
         "@types/dedent": "^0.7.2",
         "@types/node": "^22.7.4",
         "@types/uuid": "^10.0.0",
         "@types/ws": "^8.5.12",
+        "c8": "^10.1.2",
         "dotenv": "^16.4.5",
+        "github-label-sync": "^2.3.1",
         "nodemon": "^3.1.7",
+        "release-it": "^17.6.0",
         "ts-node": "^10.9.2",
         "typescript": "^5.6.2"
     },
     "resolutions": {
         "ts-node": "^10.9.2"
+    },
+    "publishConfig": {
+      "provenance": true,
+      "access": "public"
+    },
+    "c8": {
+      "reporter": [
+        "text",
+        "html"
+      ],
+      "exclude": [
+        "tests/**",
+        "dist/**",
+        "examples/**"
+      ]
+    },
+    "release-it": {
+      "git": {
+        "requireCleanWorkingDir": true,
+        "requireUpstream": true,
+        "commitMessage": "chore(release): ${version}",
+        "tagAnnotation": "v${version}",
+        "push": true,
+        "tagName": "v${version}"
+      },
+      "github": {
+        "release": true
+      },
+      "npm": {
+        "publish": true,
+        "skipChecks": true
+      },
+      "plugins": {
+        "@release-it/conventional-changelog": {
+          "preset": {
+            "name": "angular"
+          }
+        }
+      }
     }
 }
