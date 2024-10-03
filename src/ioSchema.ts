@@ -388,6 +388,7 @@ export const CURRENCIES = [
   'AUD',
   'CNY',
   'JPY',
+  'INR',
 ] as const
 export const currencyCode = z.enum(CURRENCIES)
 export type CurrencyCode = z.infer<typeof currencyCode>
