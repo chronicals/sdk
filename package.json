@@ -26,7 +26,7 @@
         "tar": "yarn pack",
         "check": "tsc --noEmit",
         "demo:basic": "node ./dist/examples/basic/index.js",
-        "compile": "tsc --emitDeclarationOnly --declaration",
+        "compile": "tsc",
         "build": "npm run compile",
         "dev": "nodemon --watch src -e ts --exec 'node --import \"data:text/javascript,import { register } from \\\"node:module\\\"; import { pathToFileURL } from \\\"node:url\\\"; register(\\\"ts-node/esm\\\", pathToFileURL(\\\"./\\\"));\" src/examples/${1:-basic}/index.ts'",
         "release": "release-it",
