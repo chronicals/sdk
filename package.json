@@ -28,7 +28,7 @@
         "compile": "tsc",
         "build": "npm run compile",
         "dev": "nodemon --watch src -e ts src/examples/${1:-basic}/index.ts",
-        "release": "release-it",
+        "release": "npm run build && release-it",
         "sync-labels": "github-label-sync --labels .github/labels.json chronicles/sdk"
     },
     "dependencies": {
