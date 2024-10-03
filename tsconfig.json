@@ -10,7 +10,7 @@
       "strictNullChecks": true,
       "rootDir": "./src",
       "moduleResolution": "Node",
-      "module": "CommonJS",
+      "module": "ESNext",
       "noUnusedLocals": false,
       "noUnusedParameters": false,
       "isolatedModules": true,
