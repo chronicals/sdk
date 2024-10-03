@@ -1,15 +1,15 @@
 import type { IncomingMessage, ServerResponse } from 'http'
-import Chronicals, { io, ctx, ChronicalsError } from './index.js'
-import ChronicalsClient from './classes/ChronicalsClient.js'
-import Page from './classes/Page.js'
+import Chronicals, { io, ctx, ChronicalsError } from './index'
+import ChronicalsClient from './classes/ChronicalsClient'
+import Page from './classes/Page'
 import {
   getRequestBody,
   HttpRequestBody,
   LambdaRequestPayload,
   LambdaResponse,
-} from './utils/http.js'
-import Action from './classes/Action.js'
-import { BasicLayout } from './classes/Layout.js'
+} from './utils/http'
+import Action from './classes/Action'
+import { BasicLayout } from './classes/Layout'
 
 class ExperimentalChronicals extends Chronicals {
   /*

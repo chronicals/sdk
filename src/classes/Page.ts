@@ -1,10 +1,10 @@
 import { Evt } from 'evt'
-import { AccessControlDefinition } from '../internalRpcSchema.js'
+import { AccessControlDefinition } from '../internalRpcSchema'
 import {
   ChronicalsActionDefinition,
   ChronicalsPageHandler,
   ChronicalsRouteDefinitions,
-} from '../types.js'
+} from '../types'
 
 export interface PageConfig {
   name: string

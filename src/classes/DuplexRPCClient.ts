@@ -1,9 +1,9 @@
 import { z, ZodError } from 'zod'
 import { Evt } from 'evt'
-import type { DuplexMessage } from '../internalRpcSchema.js'
-import { DUPLEX_MESSAGE_SCHEMA } from '../internalRpcSchema.js'
-import { sleep } from './ChronicalsClient.js'
-import ISocket, { TimeoutError } from './ISocket.js'
+import type { DuplexMessage } from '../internalRpcSchema'
+import { DUPLEX_MESSAGE_SCHEMA } from '../internalRpcSchema'
+import { sleep } from './ChronicalsClient'
+import ISocket, { TimeoutError } from './ISocket'
 
 let count = 0
 function generateId() {

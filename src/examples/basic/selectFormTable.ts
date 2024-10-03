@@ -1,4 +1,4 @@
-import { ChronicalsActionHandler } from '../../index.js'
+import { ChronicalsActionHandler } from '../../index'
 import { faker } from '@faker-js/faker'
 
 const charges = [
@@ -142,7 +142,7 @@ export const table_custom: ChronicalsActionHandler = async io => {
     for (const field of fields) {
       switch (field.value) {
         case 'id':
-          row[field.value] = faker.string.uuid()
+          row[field.value] = faker.datatype.uuid()
           break
         case 'name':
           row[field.value] = faker.name.fullName()
@@ -154,7 +154,7 @@ export const table_custom: ChronicalsActionHandler = async io => {
           row[field.value] = faker.internet.url()
           break
         case 'number':
-          row[field.value] = faker.number.int()
+          row[field.value] = faker.datatype.number()
           break
         case 'paragraph':
           row[field.value] = faker.lorem.paragraph()

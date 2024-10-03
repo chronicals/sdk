@@ -2,16 +2,15 @@ import { z, ZodError } from 'zod'
 import { v4 } from 'uuid'
 import { WebSocket } from 'ws'
 import fetch from 'cross-fetch'
-import superjson from '../utils/superjson.js'
-
-import ISocket, { TimeoutError, NotConnectedError } from './ISocket.js'
+import superjson from '../utils/superjson'
+import ISocket, { TimeoutError, NotConnectedError } from './ISocket'
 import {
   DuplexRPCClient,
   DuplexRPCHandlers,
   MethodDef,
-} from './DuplexRPCClient.js'
-import IOError from './IOError.js'
-import Logger from './Logger.js'
+} from './DuplexRPCClient'
+import IOError from './IOError'
+import Logger from './Logger'
 import {
   wsServerSchema,
   hostSchema,
@@ -23,7 +22,7 @@ import {
   PageDefinition,
   HostSchema,
   WSServerSchema,
-} from '../internalRpcSchema.js'
+} from '../internalRpcSchema'
 import {
   ActionResultSchema,
   IOFunctionReturnType,
@@ -31,9 +30,9 @@ import {
   LegacyLinkProps,
   T_IO_RENDER_INPUT,
   T_IO_RESPONSE,
-} from '../ioSchema.js'
-import { IOClient } from './IOClient.js'
-import { deserializeDates } from '../utils/deserialize.js'
+} from '../ioSchema'
+import { IOClient } from './IOClient'
+import { deserializeDates } from '../utils/deserialize'
 import type {
   ActionCtx,
   PageCtx,
@@ -45,17 +44,17 @@ import type {
   ChronicalsRouteDefinitions,
   ChronicalsPageHandler,
   ChronicalsErrorHandler,
-} from '../types.js'
-import TransactionLoadingState from './TransactionLoadingState.js'
-import { Chronicals, InternalConfig, ChronicalsError } from '../index.js'
-import Page from './Page.js'
-import Action from './Action.js'
+} from '../types'
+import TransactionLoadingState from './TransactionLoadingState'
+import { Chronicals, InternalConfig, ChronicalsError } from '../index'
+import Page from './Page'
+import Action from './Action'
 import {
   Layout,
   BasicLayout,
   LayoutSchemaInput,
   BasicLayoutConfig,
-} from './Layout.js'
+} from './Layout'
 
 import type { AsyncLocalStorage } from 'async_hooks'
 
@@ -239,7 +238,7 @@ export default class ChronicalsClient {
     if (typeof window === 'undefined' && this.#config.routesDirectory) {
       try {
         const { loadRoutesFromFileSystem } = await import(
-          '../utils/fileActionLoader.js'
+          '../utils/fileActionLoader'
         )
         fileSystemRoutes = await loadRoutesFromFileSystem(
           this.#config.routesDirectory,

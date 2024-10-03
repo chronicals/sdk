@@ -2,8 +2,7 @@
     "name": "@chronicals/sdk",
     "version": "0.1.5",
     "description": "The frontendless framework for high growth companies. Chronicals automatically generates apps by inlining the UI in your backend code. It's a faster and more maintainable way to build internal tools, rapid prototypes, and more.",
-    "homepage": "",
-    "type": "module",
+    "homepage": "https://chronicals.com",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/chronicals/sdk.git"
@@ -18,7 +17,7 @@
     ],
     "license": "MIT",
     "engines": {
-        "node": ">=18.16.0"
+        "node": ">=12.17.0"
     },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -28,39 +27,38 @@
         "demo:basic": "node ./dist/examples/basic/index.js",
         "compile": "tsc",
         "build": "npm run compile",
-        "dev": "nodemon --watch src -e ts --exec 'node --import \"data:text/javascript,import { register } from \\\"node:module\\\"; import { pathToFileURL } from \\\"node:url\\\"; register(\\\"ts-node/esm\\\", pathToFileURL(\\\"./\\\"));\" src/examples/${1:-basic}/index.ts'",
+        "dev": "nodemon --watch src -e ts src/examples/${1:-basic}/index.ts",
         "release": "release-it",
         "sync-labels": "github-label-sync --labels .github/labels.json chronicles/sdk"
     },
     "dependencies": {
-        "@brillout/import": "^0.2.3",
-        "cross-fetch": "^4.0.0",
-        "dedent": "^1.5.3",
-        "evt": "^2.5.7",
-        "superjson": "^2.2.1",
-        "uuid": "^10.0.0",
-        "ws": "^8.18.0",
-        "zod": "^3.23.8"
+        "@brillout/import": "^0.2.2",
+        "cross-fetch": "^3.1.5",
+        "evt": "^2.4.10",
+        "superjson": "^1.9.1",
+        "uuid": "^9.0.0",
+        "ws": "^8.4.1",
+        "zod": "^3.13.3"
     },
     "devDependencies": {
-        "@aws-sdk/client-s3": "^3.662.0",
-        "@aws-sdk/s3-request-presigner": "^3.662.0",
-        "@faker-js/faker": "^9.0.3",
-        "@release-it/conventional-changelog": "^8.0.2",
-        "@types/dedent": "^0.7.2",
-        "@types/node": "^22.7.4",
-        "@types/uuid": "^10.0.0",
-        "@types/ws": "^8.5.12",
+        "@aws-sdk/client-s3": "^3.135.0",
+        "@aws-sdk/s3-request-presigner": "^3.135.0",
+        "@faker-js/faker": "^7.3.0",
+        "@types/dedent": "^0.7.0",
+        "@types/node": "^17.0.8",
+        "@types/uuid": "^8.3.4",
+        "@types/ws": "^8.2.0",
+        "dotenv": "^16.3.1",
+        "nodemon": "^2.0.20",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.8.4",      
+        "@release-it/conventional-changelog": "^8.0.2",     
         "c8": "^10.1.2",
-        "dotenv": "^16.4.5",
         "github-label-sync": "^2.3.1",
-        "nodemon": "^3.1.7",
-        "release-it": "^17.6.0",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.6.2"
+        "release-it": "^17.6.0"
     },
     "resolutions": {
-        "ts-node": "^10.9.2"
+        "ts-node": "^10.9.1"
     },
     "publishConfig": {
         "provenance": true,

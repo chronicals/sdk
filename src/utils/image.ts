@@ -1,4 +1,4 @@
-import ChronicalsError from '../classes/ChronicalsError.js'
+import ChronicalsError from '../classes/ChronicalsError'
 
 const MAX_BUFFER_SIZE_MB = 50
 

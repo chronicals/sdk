@@ -1,5 +1,5 @@
-import Chronicals, { io, Layout, Page } from '../../index.js'
-import env from '../../env.js'
+import Chronicals, { io, Layout, Page } from '../../index'
+import env from '../../env'
 
 const chronicals = new Chronicals({
   apiKey: env.DEMO_PROD_API_KEY,

@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { ChronicalsActionDefinition } from '../../../types.js'
+import { ChronicalsActionDefinition } from '../../../types'
 
 const action: ChronicalsActionDefinition = {
   name: 'File-based object-based action',

@@ -1,12 +1,7 @@
 import { z } from 'zod'
-import Logger from '../classes/Logger.js'
-import {
-  tableRow,
-  T_IO_PROPS,
-  T_IO_STATE,
-  internalTableRow,
-} from '../ioSchema.js'
-import { MenuItem, TableColumn } from '../types.js'
+import Logger from '../classes/Logger'
+import { tableRow, T_IO_PROPS, T_IO_STATE, internalTableRow } from '../ioSchema'
+import { MenuItem, TableColumn } from '../types'
 import {
   columnsBuilder,
   tableRowSerializer,
@@ -16,7 +11,7 @@ import {
   missingColumnMessage,
   TableDataFetcher,
   columnsWithoutRender,
-} from '../utils/table.js'
+} from '../utils/table'
 
 type PublicProps<Row extends z.infer<typeof tableRow>> = Omit<
   T_IO_PROPS<'DISPLAY_TABLE'>,

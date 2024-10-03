@@ -1,9 +1,9 @@
-import { AccessControlDefinition } from '../internalRpcSchema.js'
+import { AccessControlDefinition } from '../internalRpcSchema'
 import {
   ExplicitChronicalsActionDefinition,
   ChronicalsActionDefinition,
   ChronicalsActionHandler,
-} from '../types.js'
+} from '../types'
 
 export default class Action implements ExplicitChronicalsActionDefinition {
   handler: ChronicalsActionHandler

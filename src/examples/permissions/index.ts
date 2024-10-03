@@ -1,9 +1,9 @@
-import Chronicals, { Layout, Page, io } from '../../index.js'
+import Chronicals, { Layout, Page, io } from '../../index'
 import {
   ChronicalsActionDefinition,
   ChronicalsRouteDefinitions,
-} from '../../types.js'
-import env from '../../env.js'
+} from '../../types'
+import env from '../../env'
 
 const actions: Record<string, ChronicalsActionDefinition> = {
   engineers: {

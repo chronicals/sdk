@@ -1,5 +1,5 @@
-import { T_IO_PROPS, ImageSize } from '../ioSchema.js'
-import { bufferToDataUrl } from '../utils/image.js'
+import { T_IO_PROPS, ImageSize } from '../ioSchema'
+import { bufferToDataUrl } from '../utils/image'
 
 export default function displayImage(
   props: {

@@ -1,6 +1,6 @@
 import path from 'path'
-import Chronicals from '../../index.js'
-import env from '../../env.js'
+import Chronicals from '../../index'
+import env from '../../env'
 
 const chronicals = new Chronicals({
   apiKey: env.DEMO_API_KEY,

@@ -1,21 +1,16 @@
 {
-    "compilerOptions": {
-      "outDir": "./dist",
-      "lib": ["dom", "dom.iterable", "ESNext"],
-      "skipLibCheck": true,
-      "target": "ESNext",
-      "declaration": true,
-      "esModuleInterop": true,
-      "strict": false,
-      "strictNullChecks": true,
-      "rootDir": "./src",
-      "moduleResolution": "Node",
-      "module": "ESNext",
-      "noUnusedLocals": false,
-      "noUnusedParameters": false,
-      "isolatedModules": true,
-      "removeComments": true,
-    },
-    "include": ["./src", "./package.json", "./typings.d.ts"],
-    "exclude": ["node_modules"]
-  }
+  "compilerOptions": {
+    "outDir": "./dist",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "target": "ES2019",
+    "declaration": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "rootDir": "./src"
+  },
+  "include": ["./src", "./package.json", "./typings.d.ts"],
+  "exclude": ["node_modules"]
+}

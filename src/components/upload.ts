@@ -1,8 +1,8 @@
 import path from 'path'
 import fetch from 'cross-fetch'
-import { ChronicalsError } from '../index.js'
-import { T_IO_PROPS, T_IO_RETURNS, T_IO_STATE } from '../ioSchema.js'
-import Logger from '../classes/Logger.js'
+import { ChronicalsError } from '../index'
+import { T_IO_PROPS, T_IO_RETURNS, T_IO_STATE } from '../ioSchema'
+import Logger from '../classes/Logger'
 
 const MAX_RETRIES = 3
 

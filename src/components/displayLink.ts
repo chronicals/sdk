@@ -1,4 +1,4 @@
-import { SerializableRecord, T_IO_PROPS } from '../ioSchema.js'
+import { SerializableRecord, T_IO_PROPS } from '../ioSchema'
 
 export default function displayLink(
   props: {

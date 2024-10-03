@@ -4,7 +4,7 @@ import {
   legacyLinkSchema,
   linkSchema,
   serializableRecord,
-} from './ioSchema.js'
+} from './ioSchema'
 
 export const DUPLEX_MESSAGE_SCHEMA = z.discriminatedUnion('kind', [
   z.object({

@@ -5,13 +5,13 @@ import {
   Layout,
   io,
   ChronicalsActionDefinition,
-} from '../../index.js'
+} from '../../index'
 import { faker } from '@faker-js/faker'
-import fakeUsers from '../utils/fakeUsers.js'
-import { generateRows, sleep } from '../utils/helpers.js'
-import { asyncTable } from '../utils/ioMethodWrappers.js'
+import fakeUsers from '../utils/fakeUsers'
+import { generateRows, sleep } from '../utils/helpers'
+import { asyncTable } from '../utils/ioMethodWrappers'
 import dedent from 'dedent'
-import { HighlightColor } from '../../ioSchema.js'
+import { HighlightColor } from '../../ioSchema'
 
 export const no_pagination: ChronicalsActionHandler = async io => {
   const data = generateRows(5)
@@ -441,7 +441,7 @@ export const table_custom: ChronicalsActionHandler = async io => {
     for (const field of fields) {
       switch (field.value) {
         case 'id':
-          row[field.value] = faker.string.uuid()
+          row[field.value] = faker.datatype.uuid()
           break
         case 'name':
           row[field.value] = faker.name.fullName()
@@ -453,7 +453,7 @@ export const table_custom: ChronicalsActionHandler = async io => {
           row[field.value] = faker.internet.url()
           break
         case 'number':
-          row[field.value] = faker.number.int()
+          row[field.value] = faker.datatype.number()
           break
         case 'paragraph':
           row[field.value] = faker.lorem.paragraph()
@@ -500,12 +500,12 @@ export const image_viewer: ChronicalsActionHandler = async io => {
     .fill(null)
     .map((_, i) => {
       const [width, height, crazyW, crazyH, tinyW, tinyH] = [
-        faker.number.int({ min: 500, max: 700 }),
-        faker.number.int({ min: 200, max: 400 }),
-        faker.number.int({ min: 100, max: 999 }),
-        faker.number.int({ min: 100, max: 999 }),
-        faker.number.int({ min: 12, max: 20 }),
-        faker.number.int({ min: 12, max: 20 }),
+        faker.datatype.number({ min: 500, max: 700 }),
+        faker.datatype.number({ min: 200, max: 400 }),
+        faker.datatype.number({ min: 100, max: 999 }),
+        faker.datatype.number({ min: 100, max: 999 }),
+        faker.datatype.number({ min: 12, max: 20 }),
+        faker.datatype.number({ min: 12, max: 20 }),
       ]
 
       return {
@@ -518,10 +518,10 @@ export const image_viewer: ChronicalsActionHandler = async io => {
         crazyH,
         tinyW,
         tinyH,
-        wide: faker.image.urlPicsumPhotos({ width, height }),
-        tall: faker.image.urlPicsumPhotos({ width, height }),
-        crazy: faker.image.urlPicsumPhotos({ width: crazyW, height: crazyH }),
-        tiny: faker.image.urlPicsumPhotos({ width: tinyW, height: tinyH }),
+        wide: faker.image.imageUrl(width, height, undefined, true),
+        tall: faker.image.imageUrl(height, width, undefined, true),
+        crazy: faker.image.imageUrl(crazyW, crazyH, undefined, true),
+        tiny: faker.image.imageUrl(tinyW, tinyH, undefined, true),
       }
     })
 

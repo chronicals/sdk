@@ -1,9 +1,9 @@
-import Logger from './Logger.js'
+import Logger from './Logger'
 import Chronicals, {
   ChronicalsActionDefinition,
   Page,
   QueuedAction,
-} from '../index.js'
+} from '../index'
 import { Ctx } from 'evt'
 
 /**

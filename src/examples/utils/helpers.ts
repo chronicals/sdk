@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 import dedent from 'dedent'
-import fakeUsers from './fakeUsers.js'
+import fakeUsers from './fakeUsers'
 
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
@@ -99,7 +99,7 @@ export function generateRows(count: number, offset = 0) {
         console.log("hello, world!");
         ~~~`,
       ]),
-      number: faker.number.int(100),
+      number: faker.datatype.number(100),
       ...Object.fromEntries(
         Array(50)
           .fill(null)

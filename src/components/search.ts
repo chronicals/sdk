@@ -3,8 +3,8 @@ import type {
   T_IO_PROPS,
   T_IO_RETURNS,
   T_IO_STATE,
-} from '../ioSchema.js'
-import IOError from '../classes/IOError.js'
+} from '../ioSchema'
+import IOError from '../classes/IOError'
 
 type RenderResultDef =
   | string

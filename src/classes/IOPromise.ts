@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Evt } from 'evt'
 import {
   ioSchema,
@@ -8,13 +9,13 @@ import {
   T_IO_PROPS,
   T_IO_RETURNS,
   T_IO_STATE,
-} from '../ioSchema.js'
+} from '../ioSchema'
 import IOComponent, {
   AnyIOComponent,
   ComponentReturnValue,
   MaybeMultipleComponentReturnValue,
-} from './IOComponent.js'
-import IOError from './IOError.js'
+} from './IOComponent'
+import IOError from './IOError'
 import {
   ComponentRenderer,
   ComponentsRenderer,
@@ -25,10 +26,10 @@ import {
   ChoiceButtonConfig,
   ChoiceButtonConfigOrShorthand,
   ComponentsRendererReturn,
-} from '../types.js'
-import { IOClientRenderReturnValues } from './IOClient.js'
+} from '../types'
+import { IOClientRenderReturnValues } from './IOClient'
 import { z, ZodError } from 'zod'
-import ChronicalsError from './ChronicalsError.js'
+import ChronicalsError from './ChronicalsError'
 
 interface IOPromiseProps<
   MethodName extends T_IO_METHOD_NAMES,
@@ -483,7 +484,7 @@ export class MultipleIOPromise<
 
     const { getSingleValue } = this
     if (getSingleValue) {
-      return results.map(result => getSingleValue(result))
+      return results.map((result: any) => getSingleValue(result))
     }
 
     return results as unknown as ComponentOutput[]
@@ -620,7 +621,7 @@ export class OptionalMultipleIOPromise<
 
     const { getSingleValue } = this
     if (getSingleValue) {
-      return results.map(result => getSingleValue(result))
+      return results.map((result: any) => getSingleValue(result))
     }
 
     return results as unknown as ComponentOutput[]
@@ -1190,7 +1191,7 @@ export class IOGroupPromise<
   }: ComponentsRendererReturn<
     [AnyIOComponent, ...AnyIOComponent[]]
   >): ReturnValues {
-    let returnValues = returnValue.map((val, i) =>
+    let returnValues = returnValue.map((val: any, i: any) =>
       this.promiseValues[i].getValue(val as never)
     )
 
@@ -1199,7 +1200,7 @@ export class IOGroupPromise<
     } else {
       const keys = Object.keys(this.promises)
       return Object.fromEntries(
-        returnValues.map((val, i) => [keys[i], val])
+        returnValues.map((val: any, i: any) => [keys[i], val])
       ) as ReturnValues
     }
   }
@@ -1221,7 +1222,7 @@ export class IOGroupPromise<
 
     const promiseValues = this.promiseValues
 
-    const values = returnValues.returnValue.map((v, index) =>
+    const values = returnValues.returnValue.map((v: any, index: any) =>
       promiseValues[index].getValue(v as never)
     )
 
@@ -1230,7 +1231,7 @@ export class IOGroupPromise<
     } else {
       const keys = Object.keys(this.promises)
       const valueMap = Object.fromEntries(
-        values.map((val, i) => [keys[i], val])
+        values.map((val: any, i: any) => [keys[i], val])
       )
 
       return this.validator(valueMap as ReturnValues)
@@ -1339,7 +1340,7 @@ export class WithChoicesIOGroupPromise<
 
     const promiseValues = this.#innerPromise.promiseValues
 
-    const values = returnValues.returnValue.map((v, index) =>
+    const values = returnValues.returnValue.map((v: any, index: any) =>
       promiseValues[index].getValue(v as never)
     )
 
@@ -1351,7 +1352,7 @@ export class WithChoicesIOGroupPromise<
     } else {
       const keys = Object.keys(this.#innerPromise.promises)
       const valueMap = Object.fromEntries(
-        values.map((val, i) => [keys[i], val])
+        values.map((val: any, i: any) => [keys[i], val])
       )
 
       return this.validator({

@@ -1,8 +1,8 @@
-import type { SdkAlert } from '../internalRpcSchema.js'
+import type { SdkAlert } from '../internalRpcSchema'
 import {
   detectPackageManager,
   getInstallCommand,
-} from '../utils/packageManager.js'
+} from '../utils/packageManager'
 
 export type LogLevel =
   | 'quiet'

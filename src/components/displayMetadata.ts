@@ -1,12 +1,12 @@
 import type { Evt } from 'evt'
-import Logger from '../classes/Logger.js'
+import Logger from '../classes/Logger'
 import {
   T_IO_PROPS,
   Serializable,
   SerializableRecord,
   ImageSchema,
-} from '../ioSchema.js'
-import { EventualValue } from '../types.js'
+} from '../ioSchema'
+import { EventualValue } from '../types'
 
 export interface EventualMetaItem {
   label: string

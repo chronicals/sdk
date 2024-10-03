@@ -1,4 +1,4 @@
-import { GridItem, InternalGridItem } from '../ioSchema.js'
+import { GridItem, InternalGridItem } from '../ioSchema'
 
 export type GridDataFetcher<Row = any> = (props: {
   queryTerm?: string

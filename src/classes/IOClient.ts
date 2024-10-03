@@ -1,7 +1,7 @@
 import { v4 } from 'uuid'
 import { z } from 'zod'
 import { Evt } from 'evt'
-import superjson from '../utils/superjson.js'
+import superjson from '../utils/superjson'
 import {
   T_IO_RENDER_INPUT,
   T_IO_RESPONSE,
@@ -12,9 +12,9 @@ import {
   T_IO_INPUT_METHOD_NAMES,
   T_IO_MULTIPLEABLE_METHOD_NAMES,
   supportsMultiple,
-} from '../ioSchema.js'
-import Logger from './Logger.js'
-import { AnyIOComponent } from './IOComponent.js'
+} from '../ioSchema'
+import Logger from './Logger'
+import { AnyIOComponent } from './IOComponent'
 import {
   ExclusiveIOPromise,
   IOGroupPromise,
@@ -24,22 +24,22 @@ import {
   MultipleableIOPromise,
   WithChoicesIOPromise,
   WithChoicesIOPromiseValidator,
-} from './IOPromise.js'
-import IOError from './IOError.js'
-import spreadsheet from '../components/spreadsheet.js'
-import displayTable from '../components/displayTable.js'
-import selectTable from '../components/selectTable.js'
-import selectSingle from '../components/selectSingle.js'
-import search from '../components/search.js'
-import selectMultiple from '../components/selectMultiple.js'
-import displayGrid from '../components/displayGrid.js'
-import displayLink from '../components/displayLink.js'
-import displayImage from '../components/displayImage.js'
-import displayVideo from '../components/displayVideo.js'
-import displayMetadata from '../components/displayMetadata.js'
-import urlInput from '../components/url.js'
-import { date, datetime } from '../components/inputDate.js'
-import { file } from '../components/upload.js'
+} from './IOPromise'
+import IOError from './IOError'
+import spreadsheet from '../components/spreadsheet'
+import displayTable from '../components/displayTable'
+import selectTable from '../components/selectTable'
+import selectSingle from '../components/selectSingle'
+import search from '../components/search'
+import selectMultiple from '../components/selectMultiple'
+import displayGrid from '../components/displayGrid'
+import displayLink from '../components/displayLink'
+import displayImage from '../components/displayImage'
+import displayVideo from '../components/displayVideo'
+import displayMetadata from '../components/displayMetadata'
+import urlInput from '../components/url'
+import { date, datetime } from '../components/inputDate'
+import { file } from '../components/upload'
 import {
   IORenderSender,
   ResponseHandlerFn,
@@ -55,9 +55,9 @@ import {
   ChoiceButtonConfig,
   RequiredPropsMultipleableInputIOComponentFunction,
   MultipleableInputIOComponentFunction,
-} from '../types.js'
-import { stripUndefined } from '../utils/deserialize.js'
-import { ChronicalsError } from '../index.js'
+} from '../types'
+import { stripUndefined } from '../utils/deserialize'
+import { ChronicalsError } from '../index'
 
 interface ClientConfig {
   logger: Logger
